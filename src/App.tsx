@@ -1,15 +1,17 @@
 import Header from './components/header/header';
-import Data from './components/data/data';
+import Main from './components/main/main';
 import Footer from './components/footer/footer';
+import { Toggle } from './components/toggle/toggle';
 
 import './global.scss';
 
-export default function App() {
+export default function App() { 
   return (
-    <div className="App">
-        <Header/>
-        <Data/>
-        <Footer/>
+    <div id="app">
+      <Toggle />
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
-export default function Data() { 
+export default function Main() { 
     const [isValidCEP, setValidCEP] = useState(false);
     const [inputCep, setInputCep] = useState('');
 
@@ -39,7 +39,7 @@ export default function Data() {
     }, [inputCep])
     
     return (
-        <>
+        <main>
             <div className={styles.search}>
                 <input id="cepInput" type="text" placeholder="Digite um CEP" onChange={event => setInputCep(event.target.value)}/>
             </div>
@@ -87,6 +87,6 @@ export default function Data() {
                     </li>
                 </ul>
             }
-        </>
+        </main>
     )
 }

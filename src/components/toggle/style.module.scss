@@ -1,0 +1,18 @@
+$dark: #131313;
+$gray: #c4c4c4;
+$white: #f1f1f1;
+
+aside {
+    position: relative;
+    float: right;
+    right: 30px;
+    z-index: 1;
+
+    button {
+        position: relative;
+        left: 35px;
+        background: none;
+        border: none;
+        z-index: 2;
+    }
+}
