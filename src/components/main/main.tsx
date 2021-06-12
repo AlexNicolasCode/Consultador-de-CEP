@@ -33,7 +33,6 @@ export default function Main() {
                     setGia(data.gia);
                     setDdd(data.ddd);
                     setSiafi(data.siafi);
-                    console.log(data.ibge);
                 });   
         } else console.log('CEP Invalido');
     }, [inputCep])
