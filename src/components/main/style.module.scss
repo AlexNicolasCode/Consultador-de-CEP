@@ -45,3 +45,17 @@
         font-weight: 400;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .search {
+        input {
+            margin-top: 16px;
+            width: 70%;    
+        }
+    }
+
+    .ul {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+} 
