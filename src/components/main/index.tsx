@@ -39,11 +39,14 @@ export default function Main() {
     
     return (
         <main>
+            <h1 className={styles.h1}>Consultador de CEP</h1>
+
             <div className={styles.search}>
                 <input id="cepInput" type="text" placeholder="Digite um CEP" onChange={event => setInputCep(event.target.value)}/>
             </div>
-            { isValidCEP &&
-                <ul>
+
+            {isValidCEP &&
+                <ul className={styles.ul}>
                     <li>
                         CEP
                         <span>{cep}</span>
