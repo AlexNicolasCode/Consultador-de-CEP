@@ -1,5 +1,5 @@
 ## Description
-CEP Query is a website created to query information from a certain location using ZipCode. This project was built using NextJS.
+Consultador de CEP is a website created to query information from a certain location using ZipCode. This project was built using NextJS.
 
 ## Getting Started
 First, run the development server:
