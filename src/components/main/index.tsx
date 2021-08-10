@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
 export default function Main() { 
-    const [isValidCEP, setValidCEP] = useState(false);
-    const [inputCep, setInputCep] = useState('');
+    const [isValidCEP, setValidCEP] = useState<boolean>(false);
+    const [inputCep, setInputCep] = useState<string>('');
 
-    const [cep, setCep] = useState('');
-    const [logradouro, setLogradouro] = useState('');
-    const [complemento, setComplemento] = useState('');
-    const [bairro, setBairro] = useState('');
-    const [localidade, setLocalidade] = useState('');
-    const [uf, setUf] = useState('');
-    const [ibge, setIbge] = useState('');
-    const [gia, setGia] = useState('');
-    const [ddd, setDdd] = useState('');
-    const [siafi, setSiafi] = useState('');
+    const [cep, setCep] = useState<string>('');
+    const [logradouro, setLogradouro] = useState<string>('');
+    const [complemento, setComplemento] = useState<string>('');
+    const [bairro, setBairro] = useState<string>('');
+    const [localidade, setLocalidade] = useState<string>('');
+    const [uf, setUf] = useState<string>('');
+    const [ibge, setIbge] = useState<string>('');
+    const [gia, setGia] = useState<string>('');
+    const [ddd, setDdd] = useState<string>('');
+    const [siafi, setSiafi] = useState<string>('');
 
     useEffect(() => {
         if (inputCep.length === 8) {
