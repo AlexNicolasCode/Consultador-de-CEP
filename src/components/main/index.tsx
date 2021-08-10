@@ -1,39 +1,54 @@
 import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
+type dataCEP = {
+    cep: string,
+    logradouro: string,
+    complemento: string,
+    localidade: string,
+    bairro: string
+    uf: string,
+    ibge: string,
+    gia: string,
+    ddd: string,
+    siafi: string,
+}
+
 export default function Main() { 
     const [isValidCEP, setValidCEP] = useState<boolean>(false);
     const [inputCep, setInputCep] = useState<string>('');
-
-    const [cep, setCep] = useState<string>('');
-    const [logradouro, setLogradouro] = useState<string>('');
-    const [complemento, setComplemento] = useState<string>('');
-    const [bairro, setBairro] = useState<string>('');
-    const [localidade, setLocalidade] = useState<string>('');
-    const [uf, setUf] = useState<string>('');
-    const [ibge, setIbge] = useState<string>('');
-    const [gia, setGia] = useState<string>('');
-    const [ddd, setDdd] = useState<string>('');
-    const [siafi, setSiafi] = useState<string>('');
+    const [dataCEP, setDataCEP] = useState<dataCEP>({
+        cep: '',
+        logradouro: '',
+        complemento: '',
+        localidade: '',
+        bairro: '',
+        uf: '',
+        ibge: '',
+        gia: '',
+        ddd: '',
+        siafi: '',
+    })
 
     useEffect(() => {
         if (inputCep.length === 8) {
             setValidCEP(true);
-            console.log(inputCep);
             fetch(`https://viacep.com.br/ws/${inputCep}/json`)
-                .then(response => response.json())
-                .then(data => {
-                    setCep(data.cep);
-                    setLogradouro(data.logradouro);
-                    setComplemento(data.complemento);
-                    setBairro(data.bairro);
-                    setLocalidade(data.localidade);
-                    setUf(data.uf);
-                    setIbge(data.ibge);
-                    setGia(data.gia);
-                    setDdd(data.ddd);
-                    setSiafi(data.siafi);
-                });   
+                .then(async (res) => {
+                    const data: dataCEP = await res.json()
+                    setDataCEP({
+                        cep: data.cep,
+                        logradouro: data.logradouro,
+                        complemento: data.complemento,
+                        localidade: data.localidade,
+                        bairro: data.bairro,
+                        uf: data.uf,
+                        ibge: data.ibge,
+                        gia: data.gia,
+                        ddd: data.ddd,
+                        siafi: data.siafi,
+                    })
+                })
         } else console.log('CEP Invalido');
     }, [inputCep])
     
@@ -49,43 +64,43 @@ export default function Main() {
                 <ul className={styles.ul}>
                     <li>
                         CEP
-                        <span>{cep}</span>
+                        <span>{dataCEP.cep}</span>
                     </li>
                     <li>
                         Logradouro
-                        <span>{logradouro}</span>
+                        <span>{dataCEP.logradouro}</span>
                     </li>
                     <li>
                         Complemento
-                        <span>{complemento}</span>
+                        <span>{dataCEP.complemento}</span>
                     </li>
                     <li>
                         Bairro
-                        <span>{bairro}</span>
+                        <span>{dataCEP.bairro}</span>
                     </li>
                     <li>
                         Localidade
-                        <span>{localidade}</span>
+                        <span>{dataCEP.localidade}</span>
                     </li>
                     <li>
                         UF
-                        <span>{uf}</span>
+                        <span>{dataCEP.uf}</span>
                     </li>
                     <li>
                         IBGE
-                        <span>{ibge}</span>
+                        <span>{dataCEP.ibge}</span>
                     </li>
                     <li>
                         GIA
-                        <span>{gia}</span>
+                        <span>{dataCEP.gia}</span>
                     </li>
                     <li>
                         DDD
-                        <span>{ddd}</span>
+                        <span>{dataCEP.ddd}</span>
                     </li>
                     <li>
                         SIAFI
-                        <span>{siafi}</span>
+                        <span>{dataCEP.siafi}</span>
                     </li>
                 </ul>
             }
